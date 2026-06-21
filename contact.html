@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevWiki | Terminal DB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="crt-transition-layer" class="crt-turn-on"></div>
+    <div class="bg-layer"></div>
+    <div class="glitch-layer"></div>
+
+    <aside class="glass-sidebar">
+        <div class="sidebar-header">
+            <h2>DEV_WIKI</h2>
+            <p>v. 1.0.4</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link" data-text="A-F">Términos A - F</a></li>
+                <li><a href="pag1.html" class="nav-link" data-text="G-M">Términos G - M</a></li>
+                <li><a href="pag2.html" class="nav-link" data-text="N-Z">Términos N - Z</a></li>
+                <li><a href="pag3.html" class="nav-link" data-text="QA & ISO">Calidad & ISO</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Terminal">Terminal DB</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer" id="transmission"></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="dictionary-header glass-panel">
+            <h1>TERMINAL_DB</h1>
+            <p>Conexión segura al servidor central. Solicitar nuevo término.</p>
+        </header>
+
+        <section class="dictionary-grid">
+            
+            <!-- Terminal Visual -->
+            <article class="glass-panel term-card" style="grid-column: 1 / -1;">
+                <div class="term-header">
+                    <h3>SYSTEM_LOG</h3>
+                    <span class="category-tag">Status</span>
+                </div>
+                <hr>
+                <div style="font-family: monospace; color: var(--text-dim); line-height: 1.8;">
+                    <p>> Establishing secure connection...</p>
+                    <p>> DB_Archive accessible.</p>
+                    <p style="color: var(--cyan);">> Ready for new entry.</p>
+                </div>
+            </article>
+
+            <!-- Formulario Estilo Consola -->
+            <article class="glass-panel term-card" style="grid-column: 1 / -1;">
+                <form class="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="ID de Usuario / Nombre" style="padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); color: var(--cyan);">
+                    <input type="text" placeholder="Término técnico a proponer" style="padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); color: var(--cyan);">
+                    <textarea placeholder="Definición o reporte de error..." rows="5" style="padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); color: var(--cyan); resize: none;"></textarea>
+                    <button type="submit" style="padding: 15px; background: rgba(0, 255, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan); cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">
+                        EJECUTAR INSERT_QUERY
+                    </button>
+                </form>
+            </article>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

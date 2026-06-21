@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevWiki | QA y Estándares ISO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="crt-transition-layer" class="crt-turn-on"></div>
+    <div class="bg-layer"></div>
+    <div class="glitch-layer"></div>
+
+    <aside class="glass-sidebar">
+        <div class="sidebar-header">
+            <h2>DEV_WIKI</h2>
+            <p>v. 1.0.4</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link" data-text="A-F">Términos A - F</a></li>
+                <li><a href="pag1.html" class="nav-link" data-text="G-M">Términos G - M</a></li>
+                <li><a href="pag2.html" class="nav-link" data-text="N-Z">Términos N - Z</a></li>
+                <li><a href="pag3.html" class="nav-link" data-text="QA & ISO">Calidad & ISO</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Terminal">Terminal DB</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer" id="transmission"></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="dictionary-header glass-panel">
+            <h1>CALIDAD & ISO</h1>
+            <p>Testing / Auditorías / Modelos de Certificación</p>
+        </header>
+
+        <section class="dictionary-grid">
+            <article class="glass-panel term-card">
+                <div class="term-header">
+                    <h3>ISO/IEC 27001</h3>
+                    <span class="category-tag">Seguridad</span>
+                </div>
+                <hr>
+                <p>Estándar internacional que especifica los requerimientos para establecer, implementar, mantener y mejorar un Sistema de Gestión de Seguridad de la Información (SGSI). Protege la confidencialidad de los datos.</p>
+            </article>
+
+            <article class="glass-panel term-card">
+                <div class="term-header">
+                    <h3>UNIT TESTING</h3>
+                    <span class="category-tag">QA</span>
+                </div>
+                <hr>
+                <p>Nivel de pruebas de software donde componentes individuales (unidades) se prueban de forma aislada para validar que funcionan según lo diseñado antes de integrarlos al sistema general.</p>
+                <div class="code-snippet">[ TESTS PASSED: 142/142 ]</div>
+            </article>
+
+            <article class="glass-panel term-card">
+                <div class="term-header">
+                    <h3>CI / CD</h3>
+                    <span class="category-tag">DevOps</span>
+                </div>
+                <hr>
+                <p><strong>Continuous Integration / Continuous Deployment.</strong> Práctica de automatizar la integración de cambios de código, la ejecución de pruebas y el despliegue a producción, reduciendo el riesgo de errores humanos.</p>
+            </article>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

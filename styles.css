@@ -1,0 +1,296 @@
+/* =====================================================
+RESET & VARIABLES
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --glass-bg: rgba(10, 15, 20, 0.45);
+    --glass-border: rgba(0, 255, 255, 0.2);
+    --glass-glow: 0 0 15px rgba(0, 255, 255, 0.05);
+    --cyan: #00ffff;
+    --red: #ff003c;
+    --text-dim: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    background-image: url("img/bg1.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+    display: flex; /* Para sidebar + main */
+}
+
+/* =====================================================
+FONDO GENERAL & SCANLINES
+===================================================== */
+.bg-layer {
+    position: fixed;
+    inset: 0;
+    /* Fondo oscuro semi-transparente para mantener efecto de cristal */
+    background: radial-gradient(circle at center, rgba(17, 27, 36, 0.85) 0%, rgba(0, 0, 0, 0.75) 100%);
+    z-index: -10;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 2px, transparent 3px);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* =====================================================
+EFECTO CRISTAL (GLASSMORPHISM)
+===================================================== */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-glow);
+    border-radius: 4px;
+}
+
+/* =====================================================
+SIDEBAR NAVEGACIÓN VERTICAL
+===================================================== */
+.glass-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    background: rgba(5, 10, 15, 0.6);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+    z-index: 900;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.sidebar-header p { color: var(--text-dim); font-size: 0.8rem; margin-top: 5px;}
+
+.glass-sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.glass-sidebar a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: block;
+    padding: 10px;
+    border-left: 2px solid transparent;
+}
+
+.glass-sidebar a:hover {
+    color: var(--cyan);
+    background: rgba(0, 255, 255, 0.05);
+    border-left: 2px solid var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: var(--cyan);
+}
+
+/* =====================================================
+CONTENIDO PRINCIPAL & HEADER
+===================================================== */
+.main-content {
+    margin-left: 260px; /* Deja espacio para el sidebar */
+    width: calc(100% - 260px);
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.dictionary-header {
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.dictionary-header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.dictionary-header p { color: var(--text-dim); letter-spacing: 1px; }
+
+.search-bar { margin-top: 20px; }
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+    color: var(--cyan);
+    font-family: inherit;
+    outline: none;
+}
+.search-bar input:focus { border-color: var(--cyan); box-shadow: 0 0 10px rgba(0,255,255,0.2); }
+
+/* =====================================================
+TARJETAS DEL DICCIONARIO
+===================================================== */
+.dictionary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.term-card {
+    padding: 25px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.term-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+}
+
+.term-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.term-header h3 { font-size: 1.5rem; letter-spacing: 2px; }
+
+.category-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    text-transform: uppercase;
+}
+.error-tag { background: rgba(255, 0, 60, 0.1); border-color: var(--red); color: var(--red); }
+
+.term-card hr {
+    border: none;
+    height: 1px;
+    background: var(--glass-border);
+    margin-bottom: 20px;
+}
+
+.term-card p { line-height: 1.6; color: var(--text-dim); font-size: 0.95rem; }
+
+.code-snippet {
+    margin-top: 15px;
+    color: var(--cyan);
+    font-size: 0.8rem;
+}
+
+.corrupt-entry p { text-shadow: -1px 0 var(--red), 1px 0 var(--cyan); }
+
+/* =====================================================
+TRANSICIÓN CRT ANIMATION (ACTUALIZADA)
+===================================================== */
+#crt-transition-layer {
+    position: fixed;
+    inset: 0;
+    background: #000; /* Pantalla negra de base */
+    z-index: 99999;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La luz blanca del fósforo del monitor */
+#crt-transition-layer::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+}
+
+/* --- ESTADO DE ENCENDIDO (AL CARGAR LA PÁGINA) --- */
+.crt-turn-on {
+    /* El fondo negro se queda un momento y luego desaparece */
+    animation: hide-black-layer 1s forwards;
+}
+
+.crt-turn-on::before {
+    /* La luz espera 0.3s en la oscuridad antes de encenderse */
+    animation: crt-expand 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.3s; 
+}
+
+/* --- ESTADO DE APAGADO (AL CAMBIAR DE PÁGINA) --- */
+.crt-turn-off {
+    /* La pantalla se va a negro rapidísimo para tapar la web */
+    animation: show-black-layer 0.8s forwards;
+}
+
+.crt-turn-off::before {
+    /* El flash del CRT aparece sobre el negro y colapsa */
+    animation: crt-collapse 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.15s; /* Breve instante negro antes de colapsar */
+}
+
+/* =====================================================
+KEYFRAMES DEL CRT
+===================================================== */
+@keyframes hide-black-layer {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes show-black-layer {
+    0% { opacity: 0; visibility: visible; }
+    5% { opacity: 1; } 
+    100% { opacity: 1; }
+}
+
+@keyframes crt-expand {
+    0% { transform: scale(0, 0.002); opacity: 1; }
+    30% { transform: scale(1, 0.002); opacity: 1; } /* Línea horizontal */
+    70% { transform: scale(1, 1); opacity: 1; }     /* Se expande verticalmente */
+    100% { transform: scale(1, 1); opacity: 0; }
+}
+
+@keyframes crt-collapse {
+    0% { transform: scale(1, 1); opacity: 0; }
+    10% { transform: scale(1, 1); opacity: 1; }     /* Destello blanco repentino */
+    50% { transform: scale(1, 0.002); opacity: 1; } /* Se aplasta a una línea */
+    100% { transform: scale(0, 0.002); opacity: 1; }/* La línea desaparece */
+}

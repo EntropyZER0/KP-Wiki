@@ -1,0 +1,319 @@
+/* =====================================================
+RESET
+===================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+/* =====================================================
+BODY
+===================================================== */
+
+body{
+
+    background:black;
+    color:white;
+
+    overflow:hidden;
+
+    font-family:monospace;
+
+}
+
+/* =====================================================
+FONDOS
+===================================================== */
+
+.void-bg,
+.creator-bg,
+.world-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    opacity:0.2;
+
+    z-index:-10;
+
+}
+
+.void-bg{
+
+    background-image:url("img/him-bg.gif");
+
+}
+
+.creator-bg{
+
+    background-image:url("img/creator-bg.gif");
+
+}
+
+.world-bg{
+
+    background-image:url("img/world-bg.gif");
+
+}
+
+/* =====================================================
+GLITCH
+===================================================== */
+
+.absolute-glitch{
+
+    position:fixed;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    mix-blend-mode:overlay;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+}
+
+/* =====================================================
+MAIN
+===================================================== */
+
+.hidden-main,
+.creator-terminal,
+.world-main{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+/* =====================================================
+TITLES
+===================================================== */
+
+.entity-title,
+.world-title-section h1{
+
+    font-size:7rem;
+
+    letter-spacing:20px;
+
+    text-shadow:
+    -5px 0 red,
+    5px 0 cyan;
+
+}
+
+.entity-subtitle{
+
+    margin-top:20px;
+
+    color:rgba(255,255,255,0.6);
+
+}
+
+/* =====================================================
+IMAGES
+===================================================== */
+
+.entity-image,
+.creator-image-section img{
+
+    width:400px;
+
+    margin-top:50px;
+
+    opacity:0.75;
+
+    filter:
+    grayscale(100%)
+    contrast(150%);
+
+}
+
+/* =====================================================
+CORRUPTED TEXT
+===================================================== */
+
+.corrupted-text{
+
+    margin-top:60px;
+
+    line-height:2;
+
+    letter-spacing:4px;
+
+}
+
+.massive-corruption{
+
+    margin-top:30px;
+
+    font-size:2rem;
+
+    color:red;
+
+    animation:flicker 0.1s infinite;
+
+}
+
+/* =====================================================
+TERMINAL
+===================================================== */
+
+.terminal-box{
+
+    width:90%;
+
+    max-width:800px;
+
+    padding:40px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+}
+
+.terminal-box hr{
+
+    margin:20px 0;
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,0.1);
+
+}
+
+.red-text{
+
+    color:red;
+
+}
+
+/* =====================================================
+FLOATING IMAGES
+===================================================== */
+
+.floating-images{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-top:60px;
+
+}
+
+.floating-img{
+
+    width:250px;
+
+    animation:float 5s infinite alternate;
+
+    opacity:0.7;
+
+}
+
+/* =====================================================
+WATCHER EYE
+===================================================== */
+
+.watcher-eye{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:red;
+
+    margin-top:80px;
+
+    box-shadow:
+    0 0 50px red;
+
+    animation:pulse 2s infinite;
+
+}
+
+/* =====================================================
+ANIMATIONS
+===================================================== */
+
+@keyframes flicker{
+
+    0%{opacity:1;}
+    50%{opacity:0.2;}
+    100%{opacity:1;}
+
+}
+
+@keyframes float{
+
+    from{
+
+        transform:
+        translateY(0px);
+
+    }
+
+    to{
+
+        transform:
+        translateY(-20px);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
